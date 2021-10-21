@@ -1,0 +1,61 @@
+Select Statements: Single Table Query
+Starts with:
+• Select columns
+• From table
+• Where conditions  (filter)
+• Order by sorting  (reordering the result set that has been produced)
+------------------------------------
+Select Statements: Multiple Table Query Using 
+JOINStarts with:
+• Select columns --- col1, col2, col3, col4, col5 -----
+• From table1
+• JOIN table2
+• ON t1.fk = t2.pk (look up the row in table 2 for that FK  PK and give us that column value)
+• JOIN table3
+• ON t2.fk = t3.pk (look up the row in table 3 for that FK  PK and give us that column value)
+• Where conditions  (filter)
+• Order by sorting  (reordering the result set that has been produced)
+-----------------------------------------------
+Cross Join Syntax
+Select TableOne.column, TableTwo.column
+From table one
+Cross Join table two
+
+-------------------------------
+JOIN Examples
+
+RIGHT/LEFT
+
+SELECT b.BedNo, w.WardID
+FROM Bed b
+RIGHT/LEFT JOIN Ward w
+ON b.WardID = w.WardID
+------
+CROSS JOIN
+
+SELECT A.FirstName AS Patient1, B.FirstName AS Patient2, A.City
+FROM Patient A, Patient B
+WHERE A.FirstName <> B.FirstName
+AND A.City = B.City 
+ORDER BY A.City;
+--------------
+FULL JOIN
+
+SELECT b.BedNo, w.WardID
+FROM Bed b
+FULL JOIN Ward w
+ON b.WardID = w.WardID
+
+-----------------------------------------
+Stored Procedure
+
+CREATE PROC SelectPatients 
+AS
+BEGIN
+SELECT FirstName, LastName 
+FROM Patient 
+WHERE LastName like 'S%'
+ORDER BY FirstName
+END;
+
+------------------------------------------------
