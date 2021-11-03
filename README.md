@@ -1,2 +1,2 @@
-# SQL-Join
+# SQL-Queries
 Script for Joins
